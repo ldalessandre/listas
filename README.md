@@ -1,15 +1,14 @@
-listas
-======
+========================================
+=Exercícios básicos e avançados em Java=
+========================================
 
-Lista de exercicios java
-
-Listas contendo VARIOS exercicios em JAVA, todos feitos para o grupo de estudos de JAVA UFLA 2014.
+Listas contendo VÁRIOS exercícios em JAVA, todos feitos para o grupo de estudos de JAVA UFLA 2014.
 
 Todos os exercicios foram feitos utilizando a IDE Eclipse LUNA x64 para Windows[1] e baseados na apostila[2] e listas[6] de Ph.D Ricardo Terra[3].
 
 Ambiente de desenvolvimento:
 Windows 8.1 x64[5]
-JDK 1.7.0_45[4]
+JDK 1.7.0_67[4]
 IDE Eclipse LUNA x64 para Windows[1]
 
 Referencias:
