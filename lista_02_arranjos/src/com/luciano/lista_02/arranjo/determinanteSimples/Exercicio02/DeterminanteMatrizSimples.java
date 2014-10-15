@@ -1,8 +1,8 @@
-package luciano.arranjos;
+package com.luciano.lista_02.arranjo.determinanteSimples.Exercicio02;
 
 import java.util.Scanner;
 
-public class Exercicio02 {
+public class DeterminanteMatrizSimples {
 
 	private static Scanner buf;
 
