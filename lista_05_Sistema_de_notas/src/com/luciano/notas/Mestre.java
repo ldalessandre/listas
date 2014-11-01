@@ -1,11 +1,13 @@
 package com.luciano.notas;
 
+import java.util.ArrayList;
+
 
 public class Mestre extends Professor{
 	private String tituloDissertacao;
 
-	public Mestre (String tituloDissertacao, long cpf, String nome, double salario ){
-		super(cpf, nome, salario);
+	public Mestre (String tituloDissertacao, long cpf, String nome, double salario, ArrayList<Disciplina> disciplinas ){
+		super(cpf, nome, salario, disciplinas);
 		this.setTituloDissertacao(tituloDissertacao);	
 	}
 	

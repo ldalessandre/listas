@@ -50,10 +50,14 @@ public class BD {
 		this.professores.add(professor);
 	}
 
-	public Object procuraNomeAluno(String nome) {
+	//
+	// Métodos relacionados aos alunos
+	//
+
+	public Object procuraAlunoMatricula(int matricula) {
 		ArrayList<Aluno> alunos = this.alunos;
 		for (Aluno i : alunos) {
-			if (i.getNome().equals(nome)) {
+			if (i.getMatricula() == matricula) {
 				return i;
 			}
 
@@ -61,10 +65,10 @@ public class BD {
 		return null;
 	}
 
-	public boolean excluiAlunoNome(String nome) {
+	public boolean excluiAlunomatricula(int matricula) {
 		ArrayList<Aluno> alunos = this.alunos;
 		for (Aluno i : alunos) {
-			if (i.getNome().equals(nome)) {
+			if (i.getMatricula() == matricula) {
 				this.alunos.remove(i);
 				return true;
 			}
@@ -72,17 +76,86 @@ public class BD {
 		}
 		return false;
 	}
-	
-	public void imprimirListaAlunos(){
+
+	public void imprimirListaAlunos() {
 		ArrayList<Aluno> alunos = this.alunos;
 		alunos = this.alunos;
 		for (Aluno i : alunos) {
 			System.out.println(i);
 		}
 	}
-	
-	
-	
+
+	//
+	// Metodos relacionados aos professores
+	//
+
+	public Professor procuraProfessorCPF(long cpf) {
+		ArrayList<Professor> professor = this.professores;
+		for (Professor i : professor) {
+			if (i.getCpf() == cpf) {
+				return i;
+			}
+
+		}
+		return null;
+	}
+
+	public boolean excluiProfessorCPF(long cpf) {
+		ArrayList<Professor> professor = this.professores;
+		for (Professor i : professor) {
+			if (i.getCpf() == cpf) {
+				this.professores.remove(i);
+				return true;
+			}
+
+		}
+		return false;
+	}
+
+	public void imprimirListaProfessores() {
+		ArrayList<Professor> professor = this.professores;
+		for (Professor i : professor) {
+			System.out.println(i);
+		}
+	}
+
+	//
+	// Metodos relacionados aos disciplina
+	//
+
+	public Disciplina procuraDisciplinaCodigo(int codigo) {
+		ArrayList<Disciplina> disciplina = this.disciplinas;
+		for (Disciplina i : disciplina) {
+			if (i.getCodigo() == codigo) {
+				return i;
+			}
+
+		}
+		return null;
+	}
+
+	public boolean excluiDisciplinaCPF(int codigo) {
+		ArrayList<Disciplina> disciplina = this.disciplinas;
+		for (Disciplina i : disciplina) {
+			if (i.getCodigo() == codigo) {
+				this.disciplinas.remove(i);
+				return true;
+			}
+
+		}
+		return false;
+	}
+
+	public void imprimirListaDisciplina() {
+		ArrayList<Disciplina> disciplina = this.disciplinas;
+		for (Disciplina i : disciplina) {
+			System.out.println(i);
+		}
+	}
+
+	//
+	// Metodos gerais da classe
+	//
 	@Override
 	public String toString() {
 		return "BD [alunos=" + alunos + ", disciplinas=" + disciplinas

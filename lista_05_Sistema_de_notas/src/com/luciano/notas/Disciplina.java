@@ -6,11 +6,11 @@ public class Disciplina {
 	private int cargaHoraria;
 	private Professor professor;
 	
-	public Disciplina(final int codigo, String nome, int cargaHoraria, Professor professor) {
+	public Disciplina(final int codigo, String nome, int cargaHoraria) {
 		this.codigo = codigo;
 		this.setNome(nome);
 		this.setCargaHoraria(cargaHoraria);
-		this.setProfessor(professor);
+		//this.setProfessor(professor);
 	}
 
 	public int getCodigo() {

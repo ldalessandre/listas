@@ -41,8 +41,8 @@ public class Aplicacao {
 					Aluno aluno = new Aluno(matricula, nome, dataNascimeto);
 					banco_de_dados.setAlunos(aluno);
 				} else if (opc == 2) {
-					String nome = buffer.next();
-					if (banco_de_dados.excluiAlunoNome(nome)) {
+					int matricula = buffer.nextInt();
+					if (banco_de_dados.excluiAlunomatricula(matricula)) {
 						System.out.println("Aluno excluido com sucesso!!!");
 					} else {
 						System.out.println("Aluno nao encontrado.");
@@ -55,36 +55,55 @@ public class Aplicacao {
 				System.out.println("1-Inluir\n" + "2-Exluir\n" + "3-Listar");
 				opc = buffer.nextShort();
 				if (opc == 1) {
-					System.out.println("Digite o cpf do professor: ");
-					long cpf = buffer.nextLong();
-					System.out.println("Digite o nome do professor: ");
-					String nome = buffer.next();
-					System.out.println("Digite o salario do professor: ");
-					double salario = buffer.nextDouble();
-					System.out.println("1-MESTRE ou 2-DOUTOR");
-					opc = buffer.nextShort();
-					Professor professor;
-					if (opc == 1) {
-						System.out
-								.println("Digite o titulo da dissertacao do professor: ");
-						String titulo = buffer.next();
-						professor = new Mestre(titulo, cpf, nome, salario);
-						banco_de_dados.setProfessores(professor);
+					if (banco_de_dados.getDisciplinas() != null) {
+						System.out.println("Digite o cpf do professor: ");
+						long cpf = buffer.nextLong();
+						System.out.println("Digite o nome do professor: ");
+						String nome = buffer.next();
+						System.out.println("Digite o salario do professor: ");
+						double salario = buffer.nextDouble();
+						System.out.println("1-MESTRE ou 2-DOUTOR");
+						opc = buffer.nextShort();
+						ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
+						while (opc != 0) {
+							System.out
+									.println("Digite pelo menos um codigo para disciplina para o professor: ");
+							int codigo = buffer.nextInt();
+							if (banco_de_dados.procuraDisciplinaCodigo(codigo) != null) {
+								disciplinas.add(banco_de_dados
+										.procuraDisciplinaCodigo(codigo));
+
+							} else {
+								System.out.println("Disciplina não encontrada");
+							}
+						}
+
+						Professor professor;
+
+						if (opc == 1) {
+							System.out
+									.println("Digite o titulo da dissertacao do professor: ");
+							String titulo = buffer.next();
+							// professor = new Mestre(titulo, cpf, nome,
+							// salario);
+							// banco_de_dados.setProfessores(professor);
+						} else {
+							System.out
+									.println("Digite o titulo da teste do professor: ");
+							String titulo = buffer.next();
+							// professor = new Doutor(titulo, cpf, nome,
+							// salario,
+							// disciplinas);
+						}
 					} else {
 						System.out
-								.println("Digite o titulo da teste do professor: ");
-						String titulo = buffer.next();
-						professor = new Doutor(titulo, cpf, nome, salario);
-					}
-					banco_de_dados.setProfessores(professor);
+								.println("Não possui disciplinas !! Favor cadastra primeiro! ");
+					} // banco_de_dados.setProfessores(professor);
 				} else if (opc == 2) {
-					// excluir
+					long cpf = buffer.nextLong();
+					banco_de_dados.excluiProfessorCPF(cpf);
 				} else if (opc == 3) {
-					ArrayList<Professor> professor = banco_de_dados
-							.getProfessores();
-					for (Professor i : professor) {
-						System.out.println(i);
-					}
+					banco_de_dados.imprimirListaProfessores();
 				}
 
 				// Disciplina
@@ -92,11 +111,34 @@ public class Aplicacao {
 				System.out.println("1-Inluir\n" + "2-Exluir\n" + "3-Listar");
 				opc = buffer.nextShort();
 				if (opc == 1) {
-					System.out.println("Digite o ");
+					System.out.println("Digite o codigo da disciplina: ");
+					int codigo = buffer.nextInt();
+					System.out.println("Digite o nome da disciplina: ");
+					String nome = buffer.next();
+					System.out
+							.println("Digite a carga horaria da disciplina: ");
+					int cargaHoraria = buffer.nextInt();
+					System.out
+							.println("Digite o cpf do professor da disciplina: ");
+					long cpf = buffer.nextLong();
+					if (banco_de_dados.procuraProfessorCPF(cpf) != null) {
+						Disciplina disciplina = new Disciplina(codigo, nome,
+								cargaHoraria,
+								banco_de_dados.procuraProfessorCPF(cpf));
+						banco_de_dados.setDisciplinas(disciplina);
+					} else
+						System.out
+								.println("professor não encontrado, cadastro cancelado! ");
 				} else if (opc == 2) {
-
+					System.out
+							.println("Digite o codigo da disciplina a ser exluida: ");
+					int codigo = buffer.nextInt();
+					if (banco_de_dados.excluiDisciplinaCPF(codigo)) {
+						System.out.println("Professor exluido com sucesso!");
+					} else
+						System.out.println("Professor não encontrado!");
 				} else if (opc == 3) {
-
+					banco_de_dados.imprimirListaDisciplina();
 				}
 			} else if (opc == 4) {
 

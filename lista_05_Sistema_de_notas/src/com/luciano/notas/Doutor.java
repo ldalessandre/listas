@@ -1,12 +1,14 @@
 package com.luciano.notas;
 
+import java.util.ArrayList;
+
 
 public class Doutor extends Professor {
 	private String tituloTese;	
 	static private double bonusSalarial = 1.13;
 
-	public Doutor(String tituloTese, long cpf, String nome, double salario ){		
-		super(cpf, nome, salario);
+	public Doutor(String tituloTese, long cpf, String nome, double salario, ArrayList<Disciplina> disciplinas ){		
+		super(cpf, nome, salario, disciplinas);
 		this.setTituloTese(tituloTese);
 		this.setSalario(salario);
 	}	

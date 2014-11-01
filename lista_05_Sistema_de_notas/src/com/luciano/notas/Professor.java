@@ -7,12 +7,13 @@ public class Professor {
 	protected final long cpf;
 	protected String nome;
 	protected double salario;
-	private ArrayList<Disciplina> disciplinas;
+	private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
-	public Professor(final long cpf, String nome, double salario) {
+	public Professor(final long cpf, String nome, double salario, ArrayList<Disciplina> disciplinas) {
 		this.cpf = cpf;
 		this.setNome(nome);
 		this.setSalario(salario);
+		this.setDisciplinas(disciplinas);
 	}
 
 	public long getCpf() {
