@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="lista_01_sintaxe/src"/>
+	<classpathentry kind="src" path="lista_02_arranjos/src"/>
+	<classpathentry kind="src" path="lista_03_lang.Object_and_JUnit/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="lista_03_lang.Object_and_JUnit/bin"/>
+</classpath>

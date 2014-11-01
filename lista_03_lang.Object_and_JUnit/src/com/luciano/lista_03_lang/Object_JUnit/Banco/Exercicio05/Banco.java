@@ -1,9 +1,7 @@
 package com.luciano.lista_03_lang.Object_JUnit.Banco.Exercicio05;
 
-import java.util.Collection;
-
 public class Banco {
-	private Collection<Correntista> correntista;
+	private Correntista correntista;
 	private static int incremento = 1;
 	private int numero;
 	private double saldo;	
@@ -14,12 +12,9 @@ public class Banco {
 		this.saldo = saldo;
 		
 	}
-	
-	public void Conta(Exercicio05_Correntista correntista){
-		this.correntista = Collection<correntista>;
-	}
 
-	public void Conta(Exercicio05_Correntista correntista, double saldo){
+
+	public void Conta(Correntista correntista, double saldo){
 		// ?
 	}
 
@@ -27,11 +22,28 @@ public class Banco {
 		return this.numero;
 	}
 
-	public Exercicio05_Correntista getCorrentis(){
-			
-	}
 	
 	public double getSaldo() {
 		return saldo;
+	}
+
+
+	public Correntista getCorrentista() {
+		return correntista;
+	}
+
+
+	public void setCorrentista(Correntista correntista) {
+		this.correntista = correntista;
+	}
+
+
+	public static int getIncremento() {
+		return incremento;
+	}
+
+
+	public static void setIncremento(int incremento) {
+		Banco.incremento = incremento;
 	}
 }
