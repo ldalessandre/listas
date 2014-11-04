@@ -5,12 +5,13 @@ public class Disciplina {
 	private String nome;
 	private int cargaHoraria;
 	private Professor professor;
-	
-	public Disciplina(final int codigo, String nome, int cargaHoraria) {
+
+	public Disciplina(final int codigo, String nome, int cargaHoraria,
+			Professor professor) {
 		this.codigo = codigo;
 		this.setNome(nome);
 		this.setCargaHoraria(cargaHoraria);
-		//this.setProfessor(professor);
+		this.setProfessor(professor);
 	}
 
 	public int getCodigo() {
@@ -40,10 +41,11 @@ public class Disciplina {
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
 	}
-	
-	public String toString(){
-		String retorno = "Codigo: "+this.getCodigo()+" - Nome: "+this.getNome()+" - Carga Horaria: "+this.getCargaHoraria()+" - Professor: "+this.professor.toString();
-		return retorno;
+
+	@Override
+	public String toString() {
+		return "Codigo=" + codigo + ", Nome=" + nome + ", Carga horaria="
+				+ cargaHoraria + ", Professor=" + professor + "]";
 	}
 
 	@Override
@@ -82,8 +84,6 @@ public class Disciplina {
 		} else if (!professor.equals(other.professor))
 			return false;
 		return true;
-	}	
-	
-	
-		
+	}
+
 }
